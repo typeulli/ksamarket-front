@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ---------------------------------- */
+  /* Background
+  /* ---------------------------------- */
+  --color-background-base: #F1F5F9;
+  --color-background-surface: #E2E8F0;
+  --color-background-accent-red: #FFC9C9;
+  --color-background-accent-orange: #F54900;
+  --color-background-accent-blue: #155DFC;
+
+  /* ---------------------------------- */
+  /* Text
+  /* ---------------------------------- */
+  --color-text-primary: #000000;
+  --color-text-secondary: #404040;
+  --color-text-muted: #737373;
+
+  /* Text Input */
+  --color-text-input-placeholder: #737373;
+  --color-text-input-value: #000000;
+
+  /* Text Button */
+  --color-text-button-default: #737373;
+  --color-text-button-hover: #262626;
+  --color-text-button-active: #000000;
+  --color-text-button-accent-red-default: #E7000B;
+  --color-text-button-accent-red-hover: #C10007;
+  --color-text-button-accent-red-active: #9F0712;
+  --color-text-button-accent-orange-default: #F54900;
+  --color-text-button-accent-orange-hover: #CA3500;
+  --color-text-button-accent-orange-active: #9F2D00;
+  --color-text-button-accent-blue-default: #155DFC;
+  --color-text-button-accent-blue-hover: #1447E6;
+  --color-text-button-accent-blue-active: #193CB8;
+
+  /* ---------------------------------- */
+  /* Border
+  /* ---------------------------------- */
+  --color-border-default: #D4D4D4;
+  --color-border-subtle: #E5E5E5;
+  --color-border-strong: #A1A1A1;
+
+  /* Border Button */
+  --color-border-button-default: #A1A1A1;
+  --color-border-button-hover: #404040;
+  --color-border-button-active: #000000;
+  --color-border-button-accent-red-default: #E7000B;
+  --color-border-button-accent-red-hover: #C10007;
+  --color-border-button-accent-red-active: #9F0712;
+  --color-border-button-accent-orange-default: #F54900;
+  --color-border-button-accent-orange-hover: #CA3500;
+  --color-border-button-accent-orange-active: #9F2D00;
+  --color-border-button-accent-blue-default: #155DFC;
+  --color-border-button-accent-blue-hover: #1447E6;
+  --color-border-button-accent-blue-active: #193CB8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+button {
+  cursor: pointer;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+* {
+  font-family:
+    -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Helvetica Neue", Arial,
+    sans-serif;
 }
