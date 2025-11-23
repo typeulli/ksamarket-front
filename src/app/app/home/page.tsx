@@ -3,6 +3,7 @@ import { AuthLink } from "@/components/atoms/AuthButton";
 import GlobalSegmentButton, {
     useGlobalSegmentOptions,
 } from "@/components/atoms/GlobalSegmentButton";
+import MutedText from "@/components/atoms/MutedText";
 import PostTypeButton from "@/components/atoms/PostTypeButton";
 import TitleText from "@/components/atoms/TitleText";
 import LostItemContainer from "@/components/molecules/LostItemContainer";
@@ -109,6 +110,7 @@ export default function Home() {
                     value={globalSelection}
                     onChange={setGlobalSelection}
                 />
+                <MutedText>최근 항목들</MutedText>
                 {globalSelection === "중고거래"
                     ? marketItems.map((value, index) => {
                           return (

@@ -20,7 +20,6 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
     const [globalSelection, setGlobalSelection] = useGlobalSegmentOptions();
-    const [marketItems, setMarketItems] = useState<ItemInfo[]>([]);
     const [lostItems, setLostItems] = useState<ItemInfo[]>([]);
     const [nav, setNav] = useNavState(NavPage.Add);
     const [search, setSearch] = useState<string>("");
@@ -35,71 +34,6 @@ export default function Home() {
             NavPage.WishList,
             NavPage.Menu,
         ].indexOf(e);
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/items/market`,
-                    {
-                        method: "GET",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        credentials: "include",
-                    }
-                );
-
-                if (!response.ok) {
-                    throw new Error("Failed to fetch data");
-                }
-
-                const result = await response.json();
-
-                setMarketItems(
-                    result.map((item: any) => ({
-                        title: item.name,
-                        user: item.seller_id,
-                        date: item.created_at,
-                        info: item.pricing,
-                        state: false,
-                    }))
-                );
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-            try {
-                const response = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/items/lost`,
-                    {
-                        method: "GET",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        credentials: "include",
-                    }
-                );
-
-                if (!response.ok) {
-                    throw new Error("Failed to fetch data");
-                }
-
-                const result = await response.json();
-                setLostItems([
-                    {
-                        title: result[0].name,
-                        user: result[0].seller_id,
-                        date: result[0].created_at,
-                        info: result[0].location,
-                        state: false,
-                    },
-                ]);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-
-        fetchData();
-    }, []);
 
     return (
         <>
