@@ -7,10 +7,17 @@ interface WarningModalProps extends React.HTMLAttributes<HTMLDivElement> {
     mode?: "orange" | "blue";
 }
 
-export default function WarningModal({ open, onClose, mode, ...props }: WarningModalProps) {
+export default function WarningModal({
+    open,
+    onClose,
+    mode,
+    ...props
+}: WarningModalProps) {
     if (!open) return null;
 
-    const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const handleOverlayClick = (
+        e: React.MouseEvent<HTMLDivElement, MouseEvent>
+    ) => {
         // 모달 내부 클릭은 onClose 되지 않도록
         if (e.target === e.currentTarget) {
             onClose("leave");
@@ -18,10 +25,18 @@ export default function WarningModal({ open, onClose, mode, ...props }: WarningM
     };
 
     const color_icon = mode === "orange" ? "#F54900" : "#155DFC";
-    const color_background = mode === "orange" ? "bg-background-accent-orange" : "bg-background-accent-blue";
-    const color_border = mode === "orange" ? "border-border-button-accent-orange-default" : "border-border-button-accent-blue-default";
-    const color_text = mode === "orange" ? "text-text-button-accent-orange-default" : "text-text-button-accent-blue-default";
-    
+    const color_background =
+        mode === "orange"
+            ? "bg-background-accent-orange"
+            : "bg-background-accent-blue";
+    const color_border =
+        mode === "orange"
+            ? "border-border-button-accent-orange-default"
+            : "border-border-button-accent-blue-default";
+    const color_text =
+        mode === "orange"
+            ? "text-text-button-accent-orange-default"
+            : "text-text-button-accent-blue-default";
 
     return (
         <div
@@ -30,10 +45,20 @@ export default function WarningModal({ open, onClose, mode, ...props }: WarningM
             {...props}
         >
             <div className="bg-white rounded-[8px] p-[24px] max-w-sm w-full flex flex-col gap-[24px]">
-                <Lucide.AlertTriangle width={40} height={40} color={color_icon} strokeWidth={1.5} className="self-center" />
+                <Lucide.AlertTriangle
+                    width={40}
+                    height={40}
+                    color={color_icon}
+                    strokeWidth={1.5}
+                    className="self-center"
+                />
                 <div className="flex flex-col gap-[8px]">
-                    <p className="text-[20px] font-semibold text-black text-center">페이지를 떠나시겠습니까?</p>
-                    <p className="text-[16px] font-semibold text-text-muted text-center">지금까지 작성중인 내용이 모두 사라집니다</p>
+                    <p className="text-[20px] font-semibold text-black text-center">
+                        페이지를 떠나시겠습니까?
+                    </p>
+                    <p className="text-[16px] font-semibold text-text-muted text-center">
+                        지금까지 작성중인 내용이 모두 사라집니다
+                    </p>
                 </div>
                 <div className="w-full gap-[12px] flex self-center">
                     <button

@@ -27,14 +27,6 @@ export default function Home() {
 
     const router = useRouter();
 
-    const indexProvider: (e: NavPage) => number = (e) =>
-        [
-            NavPage.Home,
-            NavPage.Search,
-            NavPage.Add,
-            NavPage.WishList,
-            NavPage.Menu,
-        ].indexOf(e);
     useEffect(() => {
         const fetchData = async () => {
             try {

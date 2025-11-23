@@ -26,15 +26,6 @@ export default function Home() {
     const [nav, setNav] = useNavState(NavPage.Home);
     const [search, setSearch] = useState<string>("");
     const router = useRouter();
-
-    const indexProvider: (e: NavPage) => number = (e) =>
-        [
-            NavPage.Home,
-            NavPage.Search,
-            NavPage.Add,
-            NavPage.WishList,
-            NavPage.Menu,
-        ].indexOf(e);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -62,6 +53,7 @@ export default function Home() {
                         date: item.created_at,
                         info: item.pricing,
                         state: false,
+                        src: `${process.env.NEXT_PUBLIC_API_URL}${item.image_url}`,
                     }))
                 );
             } catch (error) {
@@ -84,15 +76,16 @@ export default function Home() {
                 }
 
                 const result = await response.json();
-                setLostItems([
-                    {
-                        title: result[0].name,
-                        user: result[0].seller_id,
-                        date: result[0].created_at,
-                        info: result[0].location,
+                setLostItems(
+                    result.map((item: any) => ({
+                        title: item.name,
+                        user: item.seller_id,
+                        date: item.created_at,
+                        info: item.pricing,
                         state: false,
-                    },
-                ]);
+                        src: `${process.env.NEXT_PUBLIC_API_URL}${item.image_url}`,
+                    }))
+                );
             } catch (error) {
                 console.error("Error fetching data:", error);
             }

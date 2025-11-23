@@ -14,29 +14,23 @@ import GlobalNavigationbar, {
     useNavState,
 } from "@/components/others/GlobalNavigationbar";
 import HomeHeader from "@/components/others/HomeHeader";
+import SectionHeader from "@/components/others/SectionHeader";
 import { ItemInfo } from "@/utils/data";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-    const [globalSelection, setGlobalSelection] = useGlobalSegmentOptions();
-    const [lostItems, setLostItems] = useState<ItemInfo[]>([]);
     const [nav, setNav] = useNavState(NavPage.Add);
-    const [search, setSearch] = useState<string>("");
 
     const router = useRouter();
-
-    const indexProvider: (e: NavPage) => number = (e) =>
-        [
-            NavPage.Home,
-            NavPage.Search,
-            NavPage.Add,
-            NavPage.WishList,
-            NavPage.Menu,
-        ].indexOf(e);
-
     return (
         <>
+            <SectionHeader
+                title="새 글 작성"
+                onExit={() => {
+                    router.back();
+                }}
+            />
             <main className="flex flex-col p-[24px] gap-[16px] justify-center items-center h-full w-full">
                 <p className="text-[24px] font-semibold">
                     작성할 글 종류를 선택해주세요
