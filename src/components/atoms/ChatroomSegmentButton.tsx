@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SegmentButton from "./utils/SegmentButton";
+import SegmentButton from "./common/SegmentButton";
 
 type ChatroomSegmentButtonOption = "전체" | "판매" | "구매" | "분실물" | "아직 읽지 않음";
 
@@ -13,7 +13,7 @@ export default function ChatroomSegmentButton(
     const options: ChatroomSegmentButtonOption[] = ["전체", "판매", "구매", "분실물", "아직 읽지 않음"];
     return <SegmentButton
         selection={[
-            {text: "전체", color: "orange"},
+            {text: "전체", color: "black"},
             {text: "판매", color: "orange"},
             {text: "구매", color: "orange"},
             {text: "분실물", color: "blue"},

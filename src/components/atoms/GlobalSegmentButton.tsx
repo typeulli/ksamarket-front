@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SegmentButton from "./utils/SegmentButton";
+import SegmentButton from "./common/SegmentButton";
 
 export type GlobalSegmentOption = "중고거래" | "분실물";
 

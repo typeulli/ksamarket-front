@@ -1,13 +1,13 @@
 import * as Lucide from "lucide-react";
 
-import Input from "../atoms/utils/Input";
+import Input from "../atoms/common/Input";
 
 export default function SearchBox(
     {value, onChange, onClear, onSearch, ...props}: {
         value: string, onChange: (event: React.ChangeEvent<HTMLInputElement>) => void, onClear?: () => void, onSearch: (event: React.MouseEvent<HTMLButtonElement>) => void
     } & Omit<React.HTMLAttributes<HTMLDivElement>, "onChange">
 ) {
-    return <div {...props} className={`w-[364px] min-h-[64px] flex flex-col gap-[4px] ${props.className || ''}`}>
+    return <div {...props} className={`flex flex-col gap-[4px] w-full ${props.className || ''}`}>
         <Input value={value} onChange={onChange} onClear={onClear} placeholder="검색어를 입력하세요." children={
         <button
             onClick={onSearch}

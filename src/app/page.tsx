@@ -1,23 +1,10 @@
 "use client"
-import ChatroomHeader from "@/components/others/ChatroomHeader";
-import GlobalNavigationbar, { useNavState } from "@/components/others/GlobalNavigationbar";
-import HomeHeader from "@/components/others/HomeHeader";
-import MessageHeader from "@/components/others/MessageHeader";
-import WarningModal from "@/components/others/WarningModal";
-import { useState } from "react";
+import { AuthLink } from "@/components/atoms/AuthButton";
 
 export default function Home() {
-    const [nav, setNav] = useNavState();
-    const [warningBlueOpen, setWarningBlueOpen] = useState(false);
-    const [warningOrangeOpen, setWarningOrangeOpen] = useState(false);
-    return <>
-        <GlobalNavigationbar value={nav} onSelect={setNav} />
-        <button onClick={() => setWarningBlueOpen(true)} children="경고 모달 열기 (blue)" />
-        <WarningModal open={warningBlueOpen} onClose={() => setWarningBlueOpen(false)} mode="blue" />
-        <button onClick={() => setWarningOrangeOpen(true)} children="경고 모달 열기 (orange)" />
-        <WarningModal open={warningOrangeOpen} onClose={() => setWarningOrangeOpen(false)} mode="orange" />
-        <ChatroomHeader title="채팅방 제목" onExit={() => alert("나가기 클릭됨")} onMenu={() => alert("메뉴 클릭됨")} onSearch={() => alert("검색 클릭됨")} />
-        <MessageHeader title="메시지함 제목" onExit={() => alert("나가기 클릭됨")} />
-        <HomeHeader onSend={() => alert("전송 클릭됨")} />
-    </>
+    return <main className="flex flex-col p-[24px] gap-[16px] justify-center items-center h-screen w-full">
+        <p className="text-[24px] font-black">크사장터에 오신것을 환영합니다</p>
+        <AuthLink href="/login" mode="orange" >로그인</AuthLink>
+        <AuthLink href="/register" mode="blue" >회원가입</AuthLink>
+    </main>
 }

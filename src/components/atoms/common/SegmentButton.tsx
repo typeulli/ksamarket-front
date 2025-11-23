@@ -12,19 +12,20 @@ export default function SegmentButton({
         "black": "black",
     };
     return <div
-    className="h-[33px] flex flex-row items-center justify-center gap-[8px]"
+    className="flex flex-row items-center justify-center gap-[8px]"
     {...props}
     >
         {selection.map((item, index) => (
             <button
                 key={index}
-                className={`h-[33px] px-[12px] py-[8px] rounded-[8px] border-[2px] flex items-center justify-center bg-white`}
+                className={`px-[12px] py-[6px] rounded-[8px] flex items-center justify-center bg-white`}
                 style={{
                     borderColor: selected === index ? colormap_border[item.color] : "var(--color-border-button-default)",
+                    borderWidth: selected === index ? "2px" : "1px",
                 }}
                 onClick={() => onSelectItem(index)}
             >
-                <p className="font-semibold text-[14px]" style={{ color: selected === index ? colormap_text[item.color] : "var(--color-text-button-default)" }}>{item.text}</p>
+                <p className="text-[14px]" style={{ color: selected === index ? colormap_text[item.color] : "var(--color-text-button-default)", fontWeight: selected === index ? 700 : 500 }}>{item.text}</p>
             </button>
         ))}
     </div>;

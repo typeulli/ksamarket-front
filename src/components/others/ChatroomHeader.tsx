@@ -1,5 +1,5 @@
 import * as Lucide from "lucide-react";
-import DetailedHeader from "./utils/DetailedHeader"
+import DetailedHeader from "./common/DetailedHeader"
 
 type _on_click = React.MouseEventHandler<HTMLButtonElement>;
 

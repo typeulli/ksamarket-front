@@ -25,24 +25,24 @@ export default function WarningModal({ open, onClose, mode, ...props }: WarningM
 
     return (
         <div
-            className="fixed inset-0 bg-black opacity-75 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-[rgba(0,0,0,0.75)] flex items-center justify-center z-50"
             onClick={handleOverlayClick}
             {...props}
         >
-            <div className="min-h-[230px] bg-white rounded-[8px] p-[24px] max-w-sm w-full flex flex-col gap-[24px]">
+            <div className="bg-white rounded-[8px] p-[24px] max-w-sm w-full flex flex-col gap-[24px]">
                 <Lucide.AlertTriangle width={40} height={40} color={color_icon} strokeWidth={1.5} className="self-center" />
                 <div className="flex flex-col gap-[8px]">
                     <p className="text-[20px] font-semibold text-black text-center">페이지를 떠나시겠습니까?</p>
                     <p className="text-[16px] font-semibold text-text-muted text-center">지금까지 작성중인 내용이 모두 사라집니다</p>
                 </div>
-                <div className="w-[265px] gap-[12px] flex self-center">
+                <div className="w-full gap-[12px] flex self-center">
                     <button
-                        className={`grow border-[1px] rounded-[8px] px-[8px] py-[12px] text-[16px] font-semibold ${color_border} ${color_text}`}
+                        className={`w-full grow border-[1px] rounded-[8px] py-[12px] text-[16px] font-semibold ${color_border} ${color_text}`}
                         onClick={() => onClose("leave")}
                         children="떠나기"
                     />
                     <button
-                        className={`grow border-[1px] rounded-[8px] px-[8px] py-[12px] text-[16px] font-semibold ${color_background} text-white`}
+                        className={`w-full grow border-[1px] rounded-[8px] py-[12px] text-[16px] font-bold ${color_background} text-white`}
                         onClick={() => onClose("continue")}
                         children="계속하기"
                     />

@@ -6,7 +6,3 @@ export type ItemInfo = {
     state: boolean;
     src?: string;
 }
-
-export type MarketItemInfo = ItemInfo & {
-    liked: boolean;
-}

@@ -3,7 +3,7 @@ import { useChatroomSegmentButton } from "@/components/atoms/ChatroomSegmentButt
 import { useGlobalSegmentOptions } from "@/components/atoms/GlobalSegmentButton";
 import ChatroomBlock from "@/components/molecules/ChatroomBlock";
 import ChattingBox from "@/components/molecules/ChattingBox";
-import InputBox from "@/components/molecules/InputBox";
+import LabeledInputBox from "@/components/molecules/LabeledInputBox";
 import LabeledSegmentBox from "@/components/molecules/LabeledSegmentBox";
 import LostItemContainer from "@/components/molecules/LostItemContainer";
 import MarketItemContainer from "@/components/molecules/MarketItemContainer";
@@ -17,8 +17,8 @@ export default function Home() {
   const [globalSelection, setGlobalSelection] = useGlobalSegmentOptions();
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <InputBox label="Username" value={text} onChange={event => setText(event.currentTarget.value)} onClear={() => setText('')} />
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between p-6 gap-4 bg-white dark:bg-black sm:items-start">
+        <LabeledInputBox label="Username" value={text} onChange={event => setText(event.currentTarget.value)} onClear={() => setText('')} />
         <SearchBox value={text} onChange={event => setText(event.currentTarget.value)} onClear={() => setText('')} onSearch={event => alert("검색 버튼이 클릭되었습니다.")} />
         <TextareaBox label="Description" text={text} onChange={event => setText(event.currentTarget.value)} />
         <ChattingBox mode="orange" value={text} onChange={event => setText(event.currentTarget.value)} />

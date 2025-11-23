@@ -18,7 +18,7 @@ export function useNavState(initial: NavPage = NavPage.None) {
     return useState<NavPage>(initial);
 }
 export default function GlobalNavigationbar({value, onSelect}: {value: NavPage, onSelect: (page: NavPage) => void}) {
-    return <div className="w-[412px] min-h-[72px] px-[32px] py-[24px] flex justify-between">
+    return <div className="px-[32px] py-[24px] flex justify-between">
         <NavBtn Icon={Lucide.House} selected={value === NavPage.Home} onClick={() => onSelect(NavPage.Home)} />
         <NavBtn Icon={Lucide.Search} selected={value === NavPage.Search} onClick={() => onSelect(NavPage.Search)} />
         <NavBtn Icon={Lucide.PlusCircle} selected={value === NavPage.Add} onClick={() => onSelect(NavPage.Add)} />
